@@ -188,15 +188,20 @@ let g:clang_format#style_options = {
 " Plugin: YouCompleteMe {
 let g:ycm_confirm_extra_conf=0
 nmap <silent> <C-]> :YcmCompleter GoTo<CR>
+let g:ycm_enable_diagnostic_signs = 1
+
 " }
 
 " Plugin: syntastic {
+let g:syntastic_cursor_columns = 0
 let g:syntastic_loc_list_height=5
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_enable_signs = 0
+let g:syntastic_enable_signs = 1
 let g:syntastic_python_checkers = ['pylint', 'pyflakes', 'pep8']
 let g:syntastic_mode_map = {'passive_filetypes': ["python"] }
+let g:syntastic_error_symbol = '!'
+let g:syntastic_warning_symbol = '?'
 " }
 
 " Plugin: UltiSnips {
