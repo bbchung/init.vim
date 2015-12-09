@@ -211,7 +211,7 @@ let g:UltiSnipsExpandTrigger = '<Leader><tab>'
 " }
 
 " Plugin: Clamp {
-"nmap <silent> <Leader>r :call clighter#Rename()<CR>
+nmap <silent> <Leader>r :call ClampRename()<CR>
 let g:clamp_highlight_blacklist = ['clampNamespaceRef', 'clampFunctionDecl', 'clampFieldDecl', 'clampDeclRefExprCall', 'clampMemberRefExprCall', 'clampMemberRefExprVar', 'clampNamespace', 'clampNamespaceRef', 'clampInclusionDirective', 'clampVarDecl', 'clampTypeRef', 'clampParmDecl']
 let g:clamp_libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.7.so.1'
 if &diff == 1
