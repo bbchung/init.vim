@@ -17,14 +17,16 @@ Plug 'twerth/ir_black'
 Plug 'itchyny/lightline.vim'
 "Plug 'bling/vim-airline'
 "Plug 'Shougo/unite.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
 Plug 'rhysd/vim-clang-format'
 Plug 'bbchung/Clamp'
 Plug 'bbchung/gtags.vim'
 "Plug 'klen/python-mode'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'jlanzarotta/bufexplorer'
 "Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -189,7 +191,15 @@ let g:clang_format#style_options = {
 let g:ycm_confirm_extra_conf=0
 nmap <silent> <C-]> :YcmCompleter GoTo<CR>
 let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_error_symbol = '🚫'
+let g:ycm_warning_symbol = '⚠️'
+let g:ycm_style_error_symbol = '💡'
+let g:ycm_style_warning_symbol = '💡'
+" }
 
+" Plugin: NeoMake {
+let g:neomake_error_sign = { 'text': '🚫', 'texthl': 'SyntasticErrorSign'}
+let g:neomake_warning_sign = { 'text': '⚠️', 'texthl': 'SyntasticWarningSign'}
 " }
 
 " Plugin: syntastic {
@@ -230,6 +240,10 @@ let g:Gtags_Auto_Update = 1
 " Plugin: unite.vim {
 "silent! nmap <silent> <Leader>be :Unite -here buffer<CR>
 "nmap <silent> <C-p> :Unite -start-insert -here file_rec<CR>
+" }
+
+" Plugin: FZF {
+nmap <silent> <C-p> :FZF<CR>
 " }
 
 " Plugin: CtrlP.vim {
