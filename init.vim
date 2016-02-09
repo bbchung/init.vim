@@ -12,21 +12,29 @@ if !filereadable(s:vim_plug_dir.'/plug.vim')
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+
 Plug 'nanotech/jellybeans.vim'
 Plug 'twerth/ir_black'
-Plug 'itchyny/lightline.vim'
-"Plug 'bling/vim-airline'
+
+"Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
+
 "Plug 'Shougo/unite.vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
+
 Plug 'Valloric/YouCompleteMe'
+"Plug 'Rip-Rip/clang_complete'
+"Plug 'Shougo/deoplete.nvim'
+"
 Plug 'rhysd/vim-clang-format'
 Plug 'bbchung/Clamp'
 Plug 'bbchung/gtags.vim'
-"Plug 'klen/python-mode'
+
 "Plug 'scrooloose/syntastic'
 Plug 'benekastah/neomake'
+
 Plug 'jlanzarotta/bufexplorer'
 "Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -35,7 +43,7 @@ Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'a.vim'
-Plug 'CSApprox'
+"Plug 'CSApprox'
 call plug#end()
 
 if exists('s:install_plug')
@@ -219,6 +227,7 @@ let g:syntastic_style_warning_symbol = '💡'
 " Plugin: UltiSnips {
 let g:UltiSnipsExpandTrigger = '<Leader><tab>'
 " }
+
 
 " Plugin: Clamp {
 nmap <silent> <Leader>r :call ClampRename()<CR>
