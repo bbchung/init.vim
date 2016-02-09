@@ -71,7 +71,7 @@ set novisualbell        " turn off visual bell
 set mouse=a
 set conceallevel=0
 set concealcursor=nc
-set ls=2                " allways show status line
+set laststatus=2                " allways show status line
 set ruler               " show the cursor position all the time
 set number              " show line numbers
 set showcmd             " display incomplete commands
@@ -93,19 +93,20 @@ set foldlevelstart=20
 set tabpagemax=100
 set wildmode=longest,full
 set wildmenu
-set cot=longest,menuone
+set completeopt=longest,menuone
 set grepprg=grep\ -nH\ $*
-set ssop=buffers,curdir,folds,winsize,options,globals
-set tenc=utf8
-set fencs=utf8,big5,gb2312,utf-16
-set ff=unix
+set sessionoptions=buffers,curdir,folds,winsize,options,globals
+"set tenc=utf8
+set encoding=utf-8
+set fileencodings=utf-8,big5,gb2312,utf-16
+set fileformat=unix
 set updatetime=700
-set hls
+set hlsearch
 set undofile
 
-let &undodir=$HOME."/.vim/undo"
+let &undodir=$HOME.'/.vim/undo'
 if !isdirectory(&undodir)
-    call mkdir(&undodir, "p")
+    call mkdir(&undodir, 'p')
 endif
 
 command! W silent execute "w !sudo > /dev/null tee %"
@@ -121,13 +122,13 @@ fun! s:save_session()
 endf
 
 fun! s:source_session()
-    if index(["c", "cpp", "objc", "objcpp", "python"], &filetype) != -1
+    if index(['c', 'cpp', 'objc', 'objcpp', 'python'], &filetype) != -1
         let s:mksession=1
     endif
 
     if argc() == 0 && filereadable(s:session_file)
         echohl MoreMsg |
-                    \ echomsg "Session Loaded" |
+                    \ echomsg 'Session Loaded' |
                     \ echohl None
         execute('silent! source '.s:session_file)
         let s:mksession=1
@@ -135,13 +136,13 @@ fun! s:source_session()
 endf
 
 fun! s:build_gtags()
-    if index(["c", "cpp"], &filetype) == -1
+    if index(['c', 'cpp'], &filetype) == -1
         return
     endif
 
     if executable('gtags') && !filereadable('GTAGS')
         echohl MoreMsg |
-                    \ echomsg "building gtags" |
+                    \ echomsg 'building gtags' |
                     \ echohl None
         silent call system('gtags')
     endif
@@ -172,26 +173,26 @@ nmap <silent> <F2> :TagbarToggle<CR>
 " }
 
 " Plugin: vim-clang-format {
-let g:clang_format#command = "clang-format-3.7"
+let g:clang_format#command = 'clang-format-3.7'
 let g:clang_format#auto_formatexpr=1
 let g:clang_format#style_options = {
-            \ "BasedOnStyle" : "LLVM",
-            \ "UseTab" : "Never",
-            \ "IndentWidth" : 4,
-            \ "BreakBeforeBraces" : "Allman",
-            \ "AllowShortIfStatementsOnASingleLine" : "false",
-            \ "IndentCaseLabels" : "false",
-            \ "ColumnLimit" : 0,
-            \ "PointerAlignment" : "Right",
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortLoopsOnASingleLine" : "false",
-            \ "AllowShortFunctionsOnASingleLine" : "false",
-            \ "MaxEmptyLinesToKeep" : 2,
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "Auto",
-            \ "BreakConstructorInitializersBeforeComma" : "true",
-            \ "AllowAllParametersOfDeclarationOnNextLine" : "false",
-            \ "BinPackParameters" : "false",
+            \ 'BasedOnStyle' : 'LLVM',
+            \ 'UseTab' : 'Never',
+            \ 'IndentWidth' : 4,
+            \ 'BreakBeforeBraces' : 'Allman',
+            \ 'AllowShortIfStatementsOnASingleLine' : 'false',
+            \ 'IndentCaseLabels' : 'false',
+            \ 'ColumnLimit' : 0,
+            \ 'PointerAlignment' : 'Right',
+            \ 'AccessModifierOffset' : -4,
+            \ 'AllowShortLoopsOnASingleLine' : 'false',
+            \ 'AllowShortFunctionsOnASingleLine' : 'false',
+            \ 'MaxEmptyLinesToKeep' : 2,
+            \ 'AlwaysBreakTemplateDeclarations' : 'true',
+            \ 'Standard' : 'Auto',
+            \ 'BreakConstructorInitializersBeforeComma' : 'true',
+            \ 'AllowAllParametersOfDeclarationOnNextLine' : 'false',
+            \ 'BinPackParameters' : 'false',
             \}
 " }
 
@@ -217,7 +218,7 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_python_checkers = ['pylint', 'pyflakes', 'pep8']
-let g:syntastic_mode_map = {'passive_filetypes': ["python"] }
+let g:syntastic_mode_map = {'passive_filetypes': ['python'] }
 let g:syntastic_error_symbol = '🚫'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_error_symbol = '💡'
@@ -227,7 +228,6 @@ let g:syntastic_style_warning_symbol = '💡'
 " Plugin: UltiSnips {
 let g:UltiSnipsExpandTrigger = '<Leader><tab>'
 " }
-
 
 " Plugin: Clamp {
 nmap <silent> <Leader>r :call ClampRename()<CR>
