@@ -43,6 +43,7 @@ Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'a.vim'
+"Plug 'Conque-GDB'
 "Plug 'CSApprox'
 call plug#end()
 
@@ -76,6 +77,7 @@ set ruler               " show the cursor position all the time
 set number              " show line numbers
 set showcmd             " display incomplete commands
 set softtabstop=4       " numbers of spaces of tab character
+set tabstop=4       " numbers of spaces of tab character
 set shiftwidth=4        " numbers of spaces to (auto)indent
 set colorcolumn=0
 set nowrap
@@ -151,7 +153,7 @@ endf
 augroup AutoInit
     au!
     au VimLeavePre * call s:save_session()
-    au VimEnter * call s:source_session()
+"    au VimEnter * call s:source_session()
     au VimEnter * call s:build_gtags()
 augroup END
 " }
@@ -199,7 +201,7 @@ let g:clang_format#style_options = {
 " Plugin: YouCompleteMe {
 let g:ycm_confirm_extra_conf=0
 nmap <silent> <C-]> :YcmCompleter GoTo<CR>
-let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_error_symbol = '🚫'
 let g:ycm_warning_symbol = '⚠️'
 let g:ycm_style_error_symbol = '💡'
@@ -232,7 +234,7 @@ let g:UltiSnipsExpandTrigger = '<Leader><tab>'
 " Plugin: Clamp {
 nmap <silent> <Leader>r :call ClampRename()<CR>
 let g:clamp_highlight_blacklist = ['clampNamespaceRef', 'clampFunctionDecl', 'clampFieldDecl', 'clampDeclRefExprCall', 'clampMemberRefExprCall', 'clampMemberRefExprVar', 'clampNamespace', 'clampNamespaceRef', 'clampInclusionDirective', 'clampVarDecl', 'clampTypeRef', 'clampParmDecl']
-let g:clamp_libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.6.so.1'
+let g:clamp_libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
 if &diff == 1
     let g:clamp_autostart = 0
 endif
