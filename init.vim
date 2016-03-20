@@ -117,12 +117,6 @@ command! W silent execute "w !sudo > /dev/null tee %"
 " AutoInit {
 let s:session_file = '.nvim_session'
 
-fun! s:save_session()
-    if exists('s:mksession')
-        execute('silent! mksession! '.s:session_file)
-    endif
-endf
-
 fun! s:source_session()
     if index(['c', 'cpp', 'objc', 'objcpp', 'python'], &filetype) != -1
         let s:mksession=1
@@ -152,7 +146,7 @@ endf
 
 augroup AutoInit
     au!
-    au VimLeavePre * call s:save_session()
+    au VimLeavePre * execute('silent! mksession! '.s:session_file)
 "    au VimEnter * call s:source_session()
     au VimEnter * call s:build_gtags()
 augroup END
@@ -234,7 +228,7 @@ let g:UltiSnipsExpandTrigger = '<Leader><tab>'
 " Plugin: Clamp {
 nmap <silent> <Leader>r :call ClampRename()<CR>
 let g:clamp_highlight_blacklist = ['clampNamespaceRef', 'clampFunctionDecl', 'clampFieldDecl', 'clampDeclRefExprCall', 'clampMemberRefExprCall', 'clampMemberRefExprVar', 'clampNamespace', 'clampNamespaceRef', 'clampInclusionDirective', 'clampVarDecl', 'clampTypeRef', 'clampParmDecl']
-let g:clamp_libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+let g:clamp_libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.6.so.1'
 if &diff == 1
     let g:clamp_autostart = 0
 endif
