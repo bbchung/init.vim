@@ -169,11 +169,12 @@ nmap <silent> <F2> :TagbarToggle<CR>
 " }
 
 " Plugin: vim-clang-format {
-let g:clang_format#command = 'clang-format-3.7'
+let g:clang_format#command = 'clang-format-3.8'
 let g:clang_format#auto_formatexpr=1
 let g:clang_format#style_options = {
             \ 'BasedOnStyle' : 'LLVM',
             \ 'UseTab' : 'Never',
+            \ 'TabWidth' : '4',
             \ 'IndentWidth' : 4,
             \ 'BreakBeforeBraces' : 'Allman',
             \ 'AllowShortIfStatementsOnASingleLine' : 'false',
@@ -189,6 +190,7 @@ let g:clang_format#style_options = {
             \ 'BreakConstructorInitializersBeforeComma' : 'true',
             \ 'AllowAllParametersOfDeclarationOnNextLine' : 'false',
             \ 'BinPackParameters' : 'false',
+            \ 'SpacesBeforeTrailingComments' : 1, 
             \}
 " }
 
@@ -228,7 +230,8 @@ let g:UltiSnipsExpandTrigger = '<Leader><tab>'
 " Plugin: Clamp {
 nmap <silent> <Leader>r :call ClampRename()<CR>
 let g:clamp_highlight_blacklist = ['clampNamespaceRef', 'clampFunctionDecl', 'clampFieldDecl', 'clampDeclRefExprCall', 'clampMemberRefExprCall', 'clampMemberRefExprVar', 'clampNamespace', 'clampNamespaceRef', 'clampInclusionDirective', 'clampVarDecl', 'clampTypeRef', 'clampParmDecl']
-let g:clamp_libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.6.so.1'
+let g:clamp_libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+let g:clamp_highlight_mode=1
 if &diff == 1
     let g:clamp_autostart = 0
 endif
@@ -253,11 +256,11 @@ nmap <silent> <C-p> :FZF<CR>
 
 " Plugin: CtrlP.vim {
 "silent! nmap <silent> <Leader>b :CtrlPBuffer<CR>
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-endif
+"if executable('ag')
+  "set grepprg=ag\ --nogroup\ --nocolor
+  "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  "let g:ctrlp_use_caching = 0
+"endif
 " }
 
 " vim:foldmarker={,}:foldlevel=0:foldmethod=marker:
