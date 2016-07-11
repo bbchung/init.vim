@@ -155,6 +155,7 @@ augroup END
 " FileTypeConfig {
 augroup FileTypeConfig
     au!
+    au FileType c,cpp let delimitMate_expand_cr=1
     au FileType c,cpp,objc,objcpp,python,nasm,vim setlocal tw=0 expandtab fdm=syntax
     au FileType python setlocal ts=4 formatprg=autopep8\ -aa\ -
     au FileType tex,help,markdown setlocal tw=78 cc=78 formatprg=
@@ -262,5 +263,6 @@ nmap <silent> <C-p> :FZF<CR>
   "let g:ctrlp_use_caching = 0
 "endif
 " }
+
 
 " vim:foldmarker={,}:foldlevel=0:foldmethod=marker:
