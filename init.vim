@@ -172,28 +172,6 @@ nmap <silent> <F2> :TagbarToggle<CR>
 " Plugin: vim-clang-format {
 let g:clang_format#command = 'clang-format-3.8'
 let g:clang_format#auto_formatexpr=1
-let g:clang_format#style_options = {
-            \ 'BasedOnStyle' : 'LLVM',
-            \ 'UseTab' : 'Never',
-            \ 'TabWidth' : '4',
-            \ 'IndentWidth' : 4,
-            \ 'BreakBeforeBraces' : 'Allman',
-            \ 'AllowShortIfStatementsOnASingleLine' : 'false',
-            \ 'IndentCaseLabels' : 'false',
-            \ 'ColumnLimit' : 0,
-            \ 'PointerAlignment' : 'Right',
-            \ 'AccessModifierOffset' : -4,
-            \ 'AllowShortLoopsOnASingleLine' : 'false',
-            \ 'AllowShortFunctionsOnASingleLine' : 'false',
-            \ 'MaxEmptyLinesToKeep' : 2,
-            \ 'AlwaysBreakTemplateDeclarations' : 'true',
-            \ 'Standard' : 'Auto',
-            \ 'BreakConstructorInitializersBeforeComma' : 'true',
-            \ 'AllowAllParametersOfDeclarationOnNextLine' : 'false',
-            \ 'BinPackParameters' : 'false',
-            \ 'SpacesBeforeTrailingComments' : 1, 
-            \}
-" }
 
 " Plugin: YouCompleteMe {
 let g:ycm_confirm_extra_conf=0
